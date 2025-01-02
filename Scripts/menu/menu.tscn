@@ -1,0 +1,185 @@
+[gd_scene load_steps=14 format=3 uid="uid://qolv8j0nsg8f"]
+
+[ext_resource type="Script" path="res://Scripts/menu/menu.gd" id="1_6ydse"]
+[ext_resource type="Theme" uid="uid://big5kq1j3jwsf" path="res://Assets/gui/theme.tres" id="1_vjkfe"]
+[ext_resource type="Script" path="res://Scripts/menu/background.gd" id="2_iesct"]
+[ext_resource type="Texture2D" uid="uid://cjvgkgge2s1ab" path="res://Assets/textures/BGS/nature_4/1.png" id="3_e8001"]
+[ext_resource type="Texture2D" uid="uid://c0xw0kj3lqt6w" path="res://Assets/gui/Sprites/UI_Flat_ToggleOff03a.png" id="3_ha8ho"]
+[ext_resource type="Texture2D" uid="uid://b137eb7mbqskx" path="res://Assets/gui/Sprites/UI_Flat_ToggleOn03a.png" id="3_kap5y"]
+[ext_resource type="Texture2D" uid="uid://cd1eyc5gox8f0" path="res://Assets/textures/BGS/nature_4/2.png" id="4_jxx8o"]
+[ext_resource type="Texture2D" uid="uid://cx7u3ex8nm0ux" path="res://Assets/textures/BGS/nature_4/4.png" id="4_uqh0r"]
+[ext_resource type="Texture2D" uid="uid://8tx86ocuicka" path="res://Assets/textures/BGS/nature_4/3.png" id="5_jj58g"]
+[ext_resource type="AudioStream" uid="uid://c4cic1krnmktc" path="res://Assets/sounds/10_UI_Menu_SFX/001_Hover_01.wav" id="10_aa62r"]
+[ext_resource type="AudioStream" uid="uid://bx7fpcd08q10x" path="res://Assets/sounds/10_UI_Menu_SFX/013_Confirm_03.wav" id="11_0h1vt"]
+[ext_resource type="AudioStream" uid="uid://dko33tobbhtqi" path="res://Assets/sounds/10_UI_Menu_SFX/029_Decline_09.wav" id="12_jc3nj"]
+[ext_resource type="AudioStream" uid="uid://d1qx61hhpko2a" path="res://Assets/sounds/FreeSFX/GameSFX/Music/Nes Style/Retro Music Loop - PV8 - NES Style 01.wav" id="13_cvp4v"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_6ydse")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+script = ExtResource("2_iesct")
+
+[node name="SKY" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(-2, -2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="SKYBG" type="Sprite2D" parent="Background/SKY"]
+position = Vector2(576, 324)
+scale = Vector2(2.00617, 2.00617)
+texture = ExtResource("3_e8001")
+
+[node name="cloud" type="Sprite2D" parent="Background/SKY"]
+position = Vector2(576, 324)
+scale = Vector2(2.00617, 2.00617)
+texture = ExtResource("4_jxx8o")
+
+[node name="Trees" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Trees"]
+position = Vector2(579.778, 320.5)
+scale = Vector2(2.03395, 2.03395)
+texture = ExtResource("5_jj58g")
+
+[node name="Trees2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Trees2"]
+position = Vector2(569.996, 323.698)
+scale = Vector2(2.01665, 2.01665)
+texture = ExtResource("4_uqh0r")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 308.0
+offset_top = 236.0
+offset_right = 844.0
+offset_bottom = 387.0
+pivot_offset = Vector2(268, 75)
+focus_mode = 0
+theme = ExtResource("1_vjkfe")
+theme_type_variation = &"FlatButton"
+text = "Play"
+icon_alignment = 1
+
+[node name="Exit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 416.0
+offset_top = 412.0
+offset_right = 735.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(160, 36)
+theme = ExtResource("1_vjkfe")
+theme_type_variation = &"FlatButton"
+text = "Exit
+"
+icon_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+offset_left = 179.0
+offset_top = 58.0
+offset_right = 973.0
+offset_bottom = 205.0
+mouse_filter = 0
+theme = ExtResource("1_vjkfe")
+theme_override_colors/font_color = Color(0.576471, 0.890196, 0.894118, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 90
+text = "Killing Rampage!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sound" type="TextureButton" parent="."]
+offset_left = 5.0
+offset_top = 579.0
+offset_right = 121.0
+offset_bottom = 645.0
+toggle_mode = true
+button_pressed = true
+keep_pressed_outside = true
+texture_normal = ExtResource("3_ha8ho")
+texture_pressed = ExtResource("3_kap5y")
+stretch_mode = 5
+
+[node name="soundlabel" type="Label" parent="sound"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 12.0
+offset_right = 238.0
+offset_bottom = 53.0
+theme = ExtResource("1_vjkfe")
+text = "Sound
+"
+
+[node name="Info" type="LinkButton" parent="."]
+offset_left = 797.0
+offset_top = 615.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme = ExtResource("1_vjkfe")
+theme_override_colors/font_color = Color(1, 0.992157, 0.960784, 1)
+theme_override_font_sizes/font_size = 24
+text = "Created By @Tricky_Noodle"
+underline = 1
+uri = "https://github.com/TrickyNoodle/"
+
+[node name="hover" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(5, 579)
+stream = ExtResource("10_aa62r")
+bus = &"SFX"
+
+[node name="accept" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(10, 1158)
+stream = ExtResource("11_0h1vt")
+bus = &"SFX"
+
+[node name="exit" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(10, 1158)
+stream = ExtResource("12_jc3nj")
+bus = &"SFX"
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_cvp4v")
+autoplay = true
+bus = &"Music"
+
+[node name="Music" type="TextureButton" parent="."]
+offset_left = 5.0
+offset_top = 508.0
+offset_right = 121.0
+offset_bottom = 574.0
+toggle_mode = true
+button_pressed = true
+keep_pressed_outside = true
+texture_normal = ExtResource("3_ha8ho")
+texture_pressed = ExtResource("3_kap5y")
+stretch_mode = 5
+
+[node name="soundlabel" type="Label" parent="Music"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 12.0
+offset_right = 238.0
+offset_bottom = 53.0
+theme = ExtResource("1_vjkfe")
+text = "Music"
+
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="Name" to="." method="_on_name_mouse_entered"]
+[connection signal="mouse_exited" from="Name" to="." method="_on_name_mouse_exited"]
+[connection signal="toggled" from="sound" to="." method="_on_sound_toggled"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="toggled" from="Music" to="." method="_on_music_toggled"]
